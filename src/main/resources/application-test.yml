@@ -1,0 +1,56 @@
+server:
+  port: 8066
+  #address: 127.0.0.1
+  #sessionTimeout: 30
+  servlet:
+    context-path: /
+  tomcat:
+    uri-encoding: UTF-8
+
+spring:
+  datasource:
+    # mysql5.x 配置，高版本需要加useSSL=false
+    #url: jdbc:mysql://localhost:3306/test?characterEncoding=utf8&useSSL=false
+    # mysql8.0 需要加&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/mytest?zeroDateTimeBehavior=convertToNull&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: root
+    # mysql8.0 驱动
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # mysql5.x 驱动
+    #driver-class-name: com.mysql.jdbc.Driver
+    debug: false
+    #Druid#
+    name: test
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+
+#-----------------------------------------------------
+# pom.xml引用 mybatis-plus包，需要这样配置
+#mybatis:
+#  type-aliases-package: com.example.demo.model
+#  mapper-locations: classpath:mybatis/mappers/*.xml
+#  configuration:
+#    map-underscore-to-camel-case: true
+#-----------------------------------------------------
+
+#-----------------------------------------------------
+# pom.xml引用 mybatis-plus-boot-starter包，需要这样配置
+mybatis-plus:
+  type-aliases-package: com.example.demo.model
+  mapper-locations: classpath:mybatis/mappers/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+#-----------------------------------------------------
