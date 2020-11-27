@@ -1,0 +1,44 @@
+/target/
+
+### STS ###
+.apt_generated
+.apt_generated_tests
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+/.idea/
+/out/
+/logs/
+/.mvn/
+!.gitignore
+mvnw
+mvnw.cmd
+*.iws
+*.iml
+*.ipr
+
+### 忽略子模块的文件 ###
+**/*.ims
+**/*.iml
+**/*.ipr
+**/.mvn/
+**/.idea/
+**/out/
+**/logs/
+**/target/
+**/mvnw
+**/mvnw.cmd
+
+
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
