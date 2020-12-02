@@ -54,3 +54,9 @@ mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
 #-----------------------------------------------------
+
+#日志配置
+logging:
+  config: classpath:log/logback-test.xml
+
+
