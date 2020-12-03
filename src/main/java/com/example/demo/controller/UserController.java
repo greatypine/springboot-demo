@@ -1,7 +1,10 @@
 package com.example.demo.controller;
 
+import com.example.demo.common.base.ResponseInfo;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.model.User;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/user")
+@Api(tags = "用户接口")
 public class UserController {
     @Autowired
     private UserMapper userMapper;
@@ -20,9 +24,10 @@ public class UserController {
      * @return
      */
     @GetMapping("/get/{id}")
-    public String getUserById(@PathVariable String id){
+    @ApiOperation("根据id获取")
+    public ResponseInfo getUserById(@PathVariable String id){
         User user = userMapper.selectById(id);
-        return "hello " + user.getName();
+        return ResponseInfo.success("hello " + user.getName());
     }
 
     /**
